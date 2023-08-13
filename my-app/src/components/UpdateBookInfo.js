@@ -18,7 +18,7 @@ function UpdateBookInfo(props) {
 
   useEffect(() => {
     axios
-      .get(`https://cise-week3-backend-dm1q.vercel.app/api/books/${id}`)
+      .get(`https://cise-week3-backend.vercel.app/api/books/${id}`)
       .then((res) => {
         setBook({
           title: res.data.title,
@@ -51,7 +51,7 @@ function UpdateBookInfo(props) {
     };
 
     axios
-      .put(`https://cise-week3-backend-dm1q.vercel.app/api/books/${id}`, data)
+      .put(`https://cise-week3-backend.vercel.app/api/books/${id}`, data)
       .then((res) => {
         navigate(`/show-book/${id}`);
       })
