@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import CreateBook from './components/CreateBook';
+import ShowBookList from './components/ShowBookList';
+import ShowBookDetails from './components/ShowBookDetails';
+import UpdateBookInfo from './components/UpdateBookInfo';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+  return (
+    <Router>
+      <div>
+        <Routes>
+          <Route exact path='/' element={<ShowBookList />} />
+          <Route path='/create-book' element={<CreateBook />} />
+          <Route path='/edit-book/:id' element={<UpdateBookInfo />} />
+          <Route path='/show-book/:id' element={<ShowBookDetails />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+
+export default App;
